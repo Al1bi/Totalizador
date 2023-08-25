@@ -40,3 +40,10 @@ describe("SellPoint", () => {
     expect(sp.getVerificarImpuesto(3.2)).toEqual(true);
   });
 })
+
+describe("SellPoint", () => {
+  it("Sea Cantidad 11, Precio 3.5, Estado UT deberia retornar 2.56", () => {
+    const sp = new SellPoint('UT', 11, 3.5)
+    expect(sp.getVerificarImpuesto(2.56025)).toEqual(true);
+  });
+})
