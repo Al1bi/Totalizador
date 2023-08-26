@@ -4,7 +4,7 @@ module.exports = class SellPoint{
         this.estado = _estado;
         this.cantidad = canti;
         this.precio = preci;
-        this.impuesto = {"UT": 0.0665, "NV": 0.08, "TX": 0.0625, "AL": 0.04, "CA":  0.0825}; 
+        this.impuesto = {'UT': 0.0665, 'NV': 0.08, 'TX': 0.0625, 'AL': 0.04, 'CA':  0.0825}; 
     }
 
     getPorcentaje(){
@@ -25,8 +25,23 @@ module.exports = class SellPoint{
         return false;    
     }
 
+    getDescuento(){
+        if(this.cantidad >= 1000) return 0.03;
+        return 0; 
+    }
+
+    getTotalDescuento(){
+        return this.getDescuento() * this.cantidad * this.precio;
+    }
+
+    getVerificarDescuento(esperado){
+        const eps = 1e-9;
+        if( Math.abs(this.getTotalDescuento() - esperado)  < eps) return true;
+        return false;  
+    }
+
     getTotalAbsoluto(){
-        return this.getTotalImpuesto() + this.getPrecioNeto();
+        return this.getTotalImpuesto() + this.getPrecioNeto() - this.getTotalDescuento();
     }
 
 };

@@ -47,3 +47,18 @@ describe("SellPoint", () => {
     expect(sp.getVerificarImpuesto(2.56025)).toEqual(true);
   });
 })
+
+describe("SellPoint", () => {
+  it("Sea Cantidad 11, Precio 3.5, deberia retornar el descuento 0", () => {
+    const sp = new SellPoint('UT', 11, 3.5)
+    expect(sp.getVerificarDescuento(0)).toEqual(true);
+  });
+})
+
+
+describe("SellPoint", () => {
+  it("Sea Cantidad 1000, Precio 3.5, deberia retornar el descuento 105", () => {
+    const sp = new SellPoint('UT', 1000, 3.5)
+    expect(sp.getVerificarDescuento(105)).toEqual(true);
+  });
+})

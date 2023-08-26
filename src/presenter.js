@@ -13,8 +13,9 @@ form.addEventListener("submit", (event) => {
   const estadoSeleccionado = estado.value;
   const SP1 = new SellPoint(estadoSeleccionado, cantidadItem, precioItem);
   div.innerHTML = "<p> Precio neto ("+cantidad.value+"*$"+ precioItem+"): $" + SP1.getPrecioNeto() + "</p>";
+  div.innerHTML += "<p> Descuento ("+SP1.getDescuento()*100+"%): $"+SP1.getTotalDescuento()+"</p>";
   div.innerHTML += "<p> Impuesto para "+estadoSeleccionado+"(%"+SP1.getPorcentaje()*100+"): $" + SP1.getTotalImpuesto() +"</p>";
-  div.innerHTML += "<p> Precio total (+impuesto): $" + SP1.getTotalAbsoluto() +"</p>";
+  div.innerHTML += "<p> Precio total (descuento e impuesto): $" + SP1.getTotalAbsoluto() +"</p>";
 });
 
 
