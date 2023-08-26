@@ -27,7 +27,8 @@ module.exports = class SellPoint{
 
     getDescuento(){
         if(this.cantidad >= 1000 && this.cantidad < 3000) return 0.03;
-        if(this.cantidad >= 3000) return 0.05;
+        if(this.cantidad >= 3000 && this.cantidad < 7000) return 0.05;
+        if(this.cantidad >= 7000) return 0.07;
         return 0; 
     }
 
