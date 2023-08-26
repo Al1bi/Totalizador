@@ -62,3 +62,10 @@ describe("SellPoint", () => {
     expect(sp.getVerificarDescuento(105)).toEqual(true);
   });
 })
+
+describe("SellPoint", () => {
+  it("Sea Cantidad 3000, Precio 3.5, deberia retornar el descuento 525", () => {
+    const sp = new SellPoint('UT', 3000, 3.5)
+    expect(sp.getVerificarDescuento(525)).toEqual(true);
+  });
+})
